@@ -1,0 +1,27 @@
+server:
+  port: ${PORT:8761}
+
+spring:
+  boot:
+    # Admin
+    admin:
+      client:
+        username: admin
+        password: admin
+        url: http://localhost:8082
+        instance:
+          name: ${spring.application.name}
+  application:
+    name: discovery-service
+
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

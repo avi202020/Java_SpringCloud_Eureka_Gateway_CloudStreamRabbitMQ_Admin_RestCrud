@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+spring:
+  boot:
+    # Admin
+    admin:
+      client:
+        username: admin
+        password: admin
+        url: http://localhost:8082
+        instance:
+          name: ${spring.application.name}
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: app-events-output
+  application:
+    name: cloud-app-events-listener
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
